@@ -49,12 +49,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.google.gson.Gson;
 
-import id.co.roxas.ui.bean.BaseResponse;
-import id.co.roxas.ui.bean.CookiesAdvBean;
-import id.co.roxas.ui.bean.response.WsResponse;
-import id.co.roxas.ui.bean.response.WsResponseHashMap;
-import id.co.roxas.ui.bean.response.WsResponseList;
-import id.co.roxas.ui.encryptor.SecurityData;
+import id.co.roxas.common.bean.auth.CookiesAdvBean;
+import id.co.roxas.common.bean.response.BaseResponse;
+import id.co.roxas.common.bean.response.WsResponse;
+import id.co.roxas.common.bean.response.WsResponseHashMap;
+import id.co.roxas.common.bean.response.WsResponseList;
+import id.co.roxas.common.lib.encryptor.SecurityData;
 import id.co.roxas.ui.security.HttpRestResponse;
 import id.co.roxas.ui.security.ParamQueryCustomLib;
 import ma.glasnost.orika.MapperFacade;
@@ -69,7 +69,7 @@ public class UltimateBase {
 
 	protected MapperFacade mapperFacade = new DefaultMapperFactory.Builder().build().getMapperFacade();
 
-	protected Cookie cookieEncryptor(String key, String value, HttpSession httpSession) {
+	public static Cookie cookieEncryptor(String key, String value, HttpSession httpSession) {
 		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyyHHmm");
 		String sDate =  sdf.format(new Date());
 		System.err.println("SDF Keluaran : " + sDate);

@@ -10,7 +10,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-import id.co.roxas.ui.bean.TicTacToeWinner;
+import id.co.roxas.common.bean.tictactoe.*;
 
 public class TicTacToeComponentRule {
 	public static TicTacToeWinner isWinner(List<TicTacToeBoardRuler> list, int column, int row, int seed) {

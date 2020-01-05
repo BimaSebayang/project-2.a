@@ -7,8 +7,7 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
-import id.co.roxas.ui.bean.TicTacToeBoard;
-import id.co.roxas.ui.bean.TicTacToeRule;
+import id.co.roxas.common.bean.tictactoe.*;
 import id.co.roxas.ui.ruler.TicTacToeBoardRuler;
 import id.co.roxas.ui.ruler.TicTacToeComponentRule;
 

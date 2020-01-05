@@ -19,12 +19,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.google.gson.Gson;
 
-import id.co.roxas.app.bean.BasePrincipalUserSession;
-import id.co.roxas.app.bean.BeanAuthentication;
-import id.co.roxas.app.bean.oauth.encryptorv1;
 import id.co.roxas.app.config.auth.CustomUserService;
-import id.co.roxas.app.config.encryptor.SecurityData;
 import id.co.roxas.app.service.AuthenticationSvc;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BeanAuthentication;
+import id.co.roxas.common.bean.oauth.encryptorv1;
+import id.co.roxas.common.lib.encryptor.SecurityData;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;

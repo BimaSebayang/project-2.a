@@ -1,18 +1,15 @@
 package id.co.roxas.security.core;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-
 import id.co.roxas.common.bean.TestBean;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BeanAuthentication;
 
 @RestController
 @RequestMapping("/request")

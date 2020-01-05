@@ -27,10 +27,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-
-import id.co.roxas.app.bean.BeanAuthentication;
 import id.co.roxas.app.config.HttpRestResponse;
 import id.co.roxas.app.controller.BaseCtl;
+import id.co.roxas.common.bean.auth.BeanAuthentication;
 
 @RestController
 @RequestMapping("/shared")

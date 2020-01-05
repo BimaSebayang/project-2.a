@@ -15,16 +15,15 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
-
-import id.co.roxas.app.bean.BasePrincipalUserSession;
-import id.co.roxas.app.bean.BeanAuthentication;
-import id.co.roxas.app.bean.authorized.UnauthorizedUrlHdrBean;
-import id.co.roxas.app.bean.errorHandler.ErrorResponseHandler;
 import id.co.roxas.app.config.HttpRestResponse;
 import id.co.roxas.app.controller.BaseCtl;
 import id.co.roxas.app.dao.UnauthorizedUrlHdrDao;
 import id.co.roxas.app.repository.UnauthorizedUrlHdr;
 import id.co.roxas.app.repository.id.UnauthorizedUrlHdrId;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BeanAuthentication;
+import id.co.roxas.common.bean.auth.UnauthorizedUrlHdrBean;
+import id.co.roxas.common.bean.errorHandler.ErrorResponseHandler;
 
 @Service
 @Component

@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import id.co.roxas.deep.learning.bean.graph.Edge;
-import id.co.roxas.deep.learning.bean.graph.GraphBean;
-import id.co.roxas.deep.learning.bean.graph.Vertex;
-import id.co.roxas.deep.learning.bean.response.WsResponse;
-import id.co.roxas.deep.learning.bean.response.WsResponseList;
+import id.co.roxas.common.bean.graph.Edge;
+import id.co.roxas.common.bean.graph.GraphBean;
+import id.co.roxas.common.bean.graph.Vertex;
+import id.co.roxas.common.bean.response.WsResponse;
+import id.co.roxas.common.bean.response.WsResponseList;
 import id.co.roxas.deep.learning.controller.BaseCtl;
 import id.co.roxas.deep.learning.inteligence.structureData.Graph;
 import id.co.roxas.deep.learning.inteligence.structureData.Path;

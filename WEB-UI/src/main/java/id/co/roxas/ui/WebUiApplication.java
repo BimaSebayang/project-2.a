@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import id.co.roxas.ui.bean.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
 import id.co.roxas.ui.security.CustomUserService;
 
 @SpringBootApplication

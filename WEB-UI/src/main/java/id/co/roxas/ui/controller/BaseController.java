@@ -18,8 +18,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import id.co.roxas.ui.UltimateBase;
-import id.co.roxas.ui.bean.CookiesAdvBean;
-import id.co.roxas.ui.encryptor.SecurityData;
 
 @Component
 public class BaseController extends UltimateBase {

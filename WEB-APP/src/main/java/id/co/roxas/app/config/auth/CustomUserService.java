@@ -7,7 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.google.gson.Gson;
 
-import id.co.roxas.app.bean.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
+
 
 public class CustomUserService implements UserDetails{
 

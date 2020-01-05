@@ -19,18 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
-import id.co.roxas.ui.bean.TicTacToeBoard;
-import id.co.roxas.ui.bean.TicTacToeRule;
-import id.co.roxas.ui.bean.angular.AngularRestReturn;
-import id.co.roxas.ui.bean.angular.AngularReturn;
-import id.co.roxas.ui.bean.graph.GraphBean;
-import id.co.roxas.ui.bean.response.WsResponse;
-import id.co.roxas.ui.bean.response.WsResponseHashMap;
-import id.co.roxas.ui.bean.structureData.GraphData;
+
+import id.co.roxas.common.bean.angular.AngularRestReturn;
+import id.co.roxas.common.bean.graph.GraphBean;
+import id.co.roxas.common.bean.response.WsResponse;
+import id.co.roxas.common.bean.response.WsResponseHashMap;
+import id.co.roxas.common.bean.structureData.GraphData;
+import id.co.roxas.common.bean.tictactoe.*;
 import id.co.roxas.ui.controller.BaseController;
-import id.co.roxas.ui.encryptor.SecurityData;
 import id.co.roxas.ui.robot.MachineLearning;
 import id.co.roxas.ui.ruler.TicTacToeBoardRuler;
+import id.co.roxas.ui.security.AngularReturn;
 import id.co.roxas.ui.security.HttpRestResponse;
 
 @RestController	

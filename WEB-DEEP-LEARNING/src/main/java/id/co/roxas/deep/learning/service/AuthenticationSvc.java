@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import id.co.roxas.deep.learning.bean.BasePrincipalUserSession;
-import id.co.roxas.deep.learning.bean.BeanAuthentication;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BeanAuthentication;
 import id.co.roxas.deep.learning.config.HttpRestResponse;
 import id.co.roxas.deep.learning.controller.BaseCtl;
 

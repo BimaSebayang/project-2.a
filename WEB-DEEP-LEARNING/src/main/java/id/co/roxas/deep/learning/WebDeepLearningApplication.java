@@ -16,8 +16,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import id.co.roxas.deep.learning.bean.BasePrincipalUserSession;
-import id.co.roxas.deep.learning.bean.BeanAuthentication;
+import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
+import id.co.roxas.common.bean.auth.BeanAuthentication;
 import id.co.roxas.deep.learning.config.auth.CustomUserService;
 import id.co.roxas.deep.learning.service.AuthenticationSvc;
 import springfox.documentation.builders.ParameterBuilder;
