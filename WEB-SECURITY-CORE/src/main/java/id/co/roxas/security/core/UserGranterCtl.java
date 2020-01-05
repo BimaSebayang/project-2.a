@@ -13,7 +13,7 @@ import id.co.roxas.common.bean.auth.BeanAuthentication;
 
 @RestController
 @RequestMapping("/request")
-public class UserGranterCtl {
+public class UserGranterCtl extends CommonConnector{
 
 	@GetMapping("/testcommon")
 	public TestBean getTestBean() {

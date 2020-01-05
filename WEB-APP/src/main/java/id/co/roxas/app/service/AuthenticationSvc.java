@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
-import id.co.roxas.app.config.HttpRestResponse;
-import id.co.roxas.app.controller.BaseCtl;
+
+import id.co.roxas.app.CommonConnector;
 import id.co.roxas.app.dao.UnauthorizedUrlHdrDao;
 import id.co.roxas.app.repository.UnauthorizedUrlHdr;
 import id.co.roxas.app.repository.id.UnauthorizedUrlHdrId;
@@ -24,11 +24,12 @@ import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
 import id.co.roxas.common.bean.auth.BeanAuthentication;
 import id.co.roxas.common.bean.auth.UnauthorizedUrlHdrBean;
 import id.co.roxas.common.bean.errorHandler.ErrorResponseHandler;
+import id.co.roxas.common.bean.response.HttpRestResponse;
 
 @Service
 @Component
 @Transactional
-public class AuthenticationSvc extends BaseCtl{
+public class AuthenticationSvc extends CommonConnector{
 
 	  @Autowired
 	  private UnauthorizedUrlHdrDao unauthorizedUrlHdrDao;
@@ -95,7 +96,7 @@ public class AuthenticationSvc extends BaseCtl{
       public BasePrincipalUserSession getUserSession(BeanAuthentication authentication) {
     	  
     	  HttpRestResponse response  = wsBody
-    			  (webSecurityCoreUrl+"/request/authentication/v1", 
+    			  (commonWebSecurityCoreUrl+"/request/authentication/v1", 
     					  authentication, HttpMethod.POST, null);
     	  
     	  BasePrincipalUserSession basePrincipalUserSession = null;

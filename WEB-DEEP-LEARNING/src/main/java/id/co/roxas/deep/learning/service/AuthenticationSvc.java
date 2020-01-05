@@ -14,13 +14,13 @@ import com.google.gson.Gson;
 
 import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
 import id.co.roxas.common.bean.auth.BeanAuthentication;
-import id.co.roxas.deep.learning.config.HttpRestResponse;
-import id.co.roxas.deep.learning.controller.BaseCtl;
+import id.co.roxas.common.bean.response.HttpRestResponse;
+import id.co.roxas.deep.learning.CommonConnector;
 
 
 @Service
 @Component
-public class AuthenticationSvc extends BaseCtl{
+public class AuthenticationSvc extends CommonConnector{
 
 	
       public BasePrincipalUserSession getUserSession(BeanAuthentication authentication) {

@@ -22,19 +22,19 @@ import com.google.gson.Gson;
 
 import id.co.roxas.common.bean.angular.AngularRestReturn;
 import id.co.roxas.common.bean.graph.GraphBean;
+import id.co.roxas.common.bean.response.HttpRestResponse;
 import id.co.roxas.common.bean.response.WsResponse;
 import id.co.roxas.common.bean.response.WsResponseHashMap;
 import id.co.roxas.common.bean.structureData.GraphData;
 import id.co.roxas.common.bean.tictactoe.*;
-import id.co.roxas.ui.controller.BaseController;
+import id.co.roxas.ui.CommonConnector;
 import id.co.roxas.ui.robot.MachineLearning;
 import id.co.roxas.ui.ruler.TicTacToeBoardRuler;
 import id.co.roxas.ui.security.AngularReturn;
-import id.co.roxas.ui.security.HttpRestResponse;
 
 @RestController	
 @RequestMapping("/shared")
-public class SharedUiBackEnd extends BaseController{
+public class SharedUiBackEnd extends CommonConnector{
 
 //	@GetMapping("/access-key/{ddMMyyyyHH}")
 //	public String accessKey(@PathVariable("ddMMyyyyHH") String ddMMyyyyHH) {

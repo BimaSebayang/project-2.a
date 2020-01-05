@@ -6,7 +6,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import id.co.roxas.ui.UltimateBase;
+import id.co.roxas.ui.CommonConnector;
 
 public class AngularReturn {
 
@@ -30,7 +30,7 @@ public class AngularReturn {
 				this.reasonResponse = "Retrieve Success";
 				this.codeResponse = 200;
 				String nextKeyAccess = UUID.randomUUID().toString();
-				servletResponse.addCookie(UltimateBase.cookieEncryptor(KEY, nextKeyAccess, session));		
+				servletResponse.addCookie(CommonConnector.cookieEncryptor(KEY, nextKeyAccess, session));		
 			}
 			else {
 				this.reasonResponse = "Invalid Key Access";

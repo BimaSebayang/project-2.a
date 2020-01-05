@@ -25,6 +25,7 @@ import id.co.roxas.common.bean.auth.BasePrincipalUserSession;
 import id.co.roxas.common.bean.auth.BeanAuthentication;
 import id.co.roxas.common.bean.oauth.encryptorv1;
 import id.co.roxas.common.lib.encryptor.SecurityData;
+import id.co.roxas.common.lib.ultimate.UltimateBase;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;

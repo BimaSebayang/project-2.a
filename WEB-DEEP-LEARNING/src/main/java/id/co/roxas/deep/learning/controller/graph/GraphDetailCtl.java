@@ -13,13 +13,13 @@ import id.co.roxas.common.bean.graph.GraphBean;
 import id.co.roxas.common.bean.graph.Vertex;
 import id.co.roxas.common.bean.response.WsResponse;
 import id.co.roxas.common.bean.response.WsResponseList;
-import id.co.roxas.deep.learning.controller.BaseCtl;
+import id.co.roxas.deep.learning.CommonConnector;
 import id.co.roxas.deep.learning.inteligence.structureData.Graph;
 import id.co.roxas.deep.learning.inteligence.structureData.Path;
 
 @RestController
 @RequestMapping("/graph-detail-ctl")
-public class GraphDetailCtl extends BaseCtl {
+public class GraphDetailCtl extends CommonConnector {
 
 	@PostMapping("/generate")
 	public WsResponse<Graph> generateGraph(@RequestBody GraphBean bean) {

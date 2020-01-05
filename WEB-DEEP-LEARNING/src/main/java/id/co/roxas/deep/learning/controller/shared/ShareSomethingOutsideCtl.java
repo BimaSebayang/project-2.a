@@ -29,12 +29,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
 
 import id.co.roxas.common.bean.auth.BeanAuthentication;
-import id.co.roxas.deep.learning.config.HttpRestResponse;
-import id.co.roxas.deep.learning.controller.BaseCtl;
+import id.co.roxas.common.bean.response.HttpRestResponse;
+import id.co.roxas.deep.learning.CommonConnector;
 
 @RestController
 @RequestMapping("/shared")
-public class ShareSomethingOutsideCtl extends BaseCtl {
+public class ShareSomethingOutsideCtl extends CommonConnector {
    
 	private static final String URL = "/shared";
 	private final static String SALT_URL = "http://localhost:"; 

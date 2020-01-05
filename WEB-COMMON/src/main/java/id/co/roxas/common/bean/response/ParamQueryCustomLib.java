@@ -1,4 +1,4 @@
-package id.co.roxas.ui.security;
+package id.co.roxas.common.bean.response;
 
 public class ParamQueryCustomLib {
      private String key;

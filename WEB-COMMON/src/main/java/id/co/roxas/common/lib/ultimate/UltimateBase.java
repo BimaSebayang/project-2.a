@@ -1,4 +1,4 @@
-package id.co.roxas.deep.learning;
+package id.co.roxas.common.lib.ultimate;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -18,22 +18,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.google.gson.Gson;
 
+import id.co.roxas.common.bean.response.BaseResponse;
+import id.co.roxas.common.bean.response.WsResponse;
+import id.co.roxas.common.bean.response.WsResponseHashMap;
+import id.co.roxas.common.bean.response.WsResponseList;
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 @Component
 public class UltimateBase {
-
-	@Value("${server.port}")
-	protected String serverPort;
 	
-	@Value("${server.servlet.context-path}")
-	protected String contextPath;
-	
-	@Value("${web-security-core.url}")
-	protected String webSecurityCoreUrl;
-	
-	protected final static Integer SUFFICIENT_SAVE = 1;
+	protected final static String SUFFICIENT_SAVE = "1";
 	
 	protected final static String INSUFFICIENT_SAVE = "0";
 	
@@ -45,6 +40,54 @@ public class UltimateBase {
 		  return sdf.format(date);
 	}    
 	
+    
+    protected <T> WsResponse<T> mapperJsonToSingleResponse(String result, Class<T> clazz) throws Exception {
+		WsResponse<T> responseT = new WsResponse<>();
+		Map<String, Object> mapper = mapperJsonToHashMap(result);
+		String resultResponse = new Gson().toJson(mapper.get("response"));
+		BaseResponse baseResponse = mapperJsonToSingleDto(result, BaseResponse.class);
+		responseT.setAccessedDate(baseResponse.getAccessedDate());
+		responseT.setReasonCode(baseResponse.getReasonCode());
+		responseT.setResponseCode(baseResponse.getResponseCode());
+		responseT.setResponse(mapperJsonToSingleDto(resultResponse, clazz));
+		return responseT;
+	}
+
+	protected <T> WsResponseList<T> mapperJsonToListResponse(String result, Class<T> clazz) throws Exception {
+		WsResponseList<T> responseT = new WsResponseList<>();
+		Map<String, Object> mapper = mapperJsonToHashMap(result);
+		String resultResponse = new Gson().toJson(mapper.get("response"));
+		BaseResponse baseResponse = mapperJsonToSingleDto(result, BaseResponse.class);
+		responseT.setAccessedDate(baseResponse.getAccessedDate());
+		responseT.setReasonCode(baseResponse.getReasonCode());
+		responseT.setResponseCode(baseResponse.getResponseCode());
+		responseT.setResponse(mapperJsonToListDto(resultResponse, clazz));
+		return responseT;
+	}
+
+	protected <K, V> WsResponseHashMap<K, V> mapperJsonToMapResponse(String result) throws Exception {
+		WsResponseHashMap<K, V> responseT = new WsResponseHashMap<>();
+		Map<String, Object> mapper = mapperJsonToHashMap(result);
+		String resultResponse = new Gson().toJson(mapper.get("response"));
+		BaseResponse baseResponse = mapperJsonToSingleDto(result, BaseResponse.class);
+		responseT.setAccessedDate(baseResponse.getAccessedDate());
+		responseT.setReasonCode(baseResponse.getReasonCode());
+		responseT.setResponseCode(baseResponse.getResponseCode());
+		responseT.setResponse(mapperJsonToHashMapPart2(resultResponse));
+		return responseT;
+	}
+	private <K, V> Map<K, V> mapperJsonToHashMapPart2(String result) {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		Map<K, V> finalMap = new HashMap<>();
+		try {
+			finalMap = mapper.readValue(result, new TypeReference<HashMap<K, V>>() {
+			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return finalMap;
+	}
 
 	protected Map<String, Object> mapResultApi(String result) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -78,7 +121,7 @@ public class UltimateBase {
 		return new Gson().toJson(object);
 	}
 
-	protected <T> T mapperJsonToSingleDto(String json, Class<T> clazz) throws Exception {
+	public <T> T mapperJsonToSingleDto(String json, Class<T> clazz) throws Exception {
 		ObjectMapper om = new ObjectMapper();
 		om.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 		om.configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false);

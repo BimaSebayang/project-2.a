@@ -1,4 +1,5 @@
-package id.co.roxas.deep.learning.controller;
+package id.co.roxas.common.lib.controller;
+
 
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
@@ -21,6 +22,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -35,21 +38,14 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import id.co.roxas.deep.learning.UltimateBase;
-import id.co.roxas.deep.learning.config.HttpRestResponse;
-import id.co.roxas.deep.learning.config.ParamQueryCustomLib;
+
+import id.co.roxas.common.bean.response.HttpRestResponse;
+import id.co.roxas.common.bean.response.ParamQueryCustomLib;
+import id.co.roxas.common.lib.ultimate.UltimateBase;
 
 @Component
 public class BaseCtl extends UltimateBase{
-	//private static final Logger LOGGER =  LoggerFactory.getLogger(BaseCtl.class);
 	
-	protected String prettyGsonPrint(Object obj) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(obj);
-	}
-	
-
 	//test connection with token security
 	protected boolean isConnectWithSomeUrl(String url) {
 		HttpRestResponse response = wsBody(url, null, HttpMethod.GET, null );
@@ -393,5 +389,5 @@ public class BaseCtl extends UltimateBase{
 	       HttpRestResponse httpRestResponse = new HttpRestResponse(null, null);
 	       return httpRestResponse;
 	}
-	
+
 }

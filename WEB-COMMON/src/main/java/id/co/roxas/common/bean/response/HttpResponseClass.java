@@ -1,4 +1,4 @@
-package id.co.roxas.deep.learning.config;
+package id.co.roxas.common.bean.response;
 
 import org.springframework.http.HttpStatus;
 

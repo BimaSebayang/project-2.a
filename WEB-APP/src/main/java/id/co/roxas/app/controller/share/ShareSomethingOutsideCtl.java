@@ -27,13 +27,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import id.co.roxas.app.config.HttpRestResponse;
-import id.co.roxas.app.controller.BaseCtl;
+
+import id.co.roxas.app.CommonConnector;
 import id.co.roxas.common.bean.auth.BeanAuthentication;
+import id.co.roxas.common.bean.response.HttpRestResponse;
 
 @RestController
 @RequestMapping("/shared")
-public class ShareSomethingOutsideCtl extends BaseCtl {
+public class ShareSomethingOutsideCtl extends CommonConnector {
    
 	private static final String URL = "/shared";
 	private final static String SALT_URL = "http://localhost:"; 
@@ -69,10 +70,10 @@ public class ShareSomethingOutsideCtl extends BaseCtl {
 	public Map<String, Object> passwordGranterV3(
 			@RequestBody BeanAuthentication beanAuthentication){
 		
-		if(!isConnectWithSomeUrl(webSecurityCoreUrl)) {
+		if(!isConnectWithSomeUrl(commonWebSecurityCoreUrl)) {
 			Map<String, Object> map = new HashMap<>();
 			map.put("code", 501);
-			map.put("reason", "Connection Refused For URL : " + webSecurityCoreUrl);
+			map.put("reason", "Connection Refused For URL : " + commonWebSecurityCoreUrl);
 			return map;
 		}
 		
@@ -85,7 +86,7 @@ public class ShareSomethingOutsideCtl extends BaseCtl {
 		header.put("Authorization",
 				"Basic ".concat(USER_ABILIFY));
 		HttpRestResponse httpRestResponse = wsBody
-				(SALT_URL+serverPort+contextPath+"/oauth/token?"+granterType, null, HttpMethod.POST,header);
+				(SALT_URL+appServerPort+contextPath+"/oauth/token?"+granterType, null, HttpMethod.POST,header);
 		
 		System.err.println("error result " + new Gson().toJson(httpRestResponse));
 		

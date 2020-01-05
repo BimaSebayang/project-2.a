@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import id.co.roxas.app.controller.BaseCtl;
+import id.co.roxas.app.CommonConnector;
 import id.co.roxas.app.service.AuthenticationSvc;
 import id.co.roxas.common.bean.auth.UnauthorizedUrlHdrBean;
 
 @RestController
 @RequestMapping("/unauthorized")
-public class CreateUnauthorizedUrl extends BaseCtl {
+public class CreateUnauthorizedUrl extends CommonConnector {
 
 	@Autowired
 	private AuthenticationSvc authenticationSvc;

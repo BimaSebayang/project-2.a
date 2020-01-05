@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import id.co.roxas.ui.controller.BaseController;
+import id.co.roxas.common.lib.controller.BaseCtl;
+import id.co.roxas.ui.CommonConnector;
 
 @Controller
 @RequestMapping("/shared-ui")
-public class SharedUi extends BaseController{
+public class SharedUi extends CommonConnector{
 
 	@RequestMapping("/test-doang")
 	public String test() {
