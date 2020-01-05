@@ -1,0 +1,96 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+
+<title>Tic Tac Toe</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link rel="stylesheet" th:href="@{/style/loading-component.css}" />
+<script th:src="@{/assets/resources/angular/js/angular.min.js}"></script>
+<script th:src="@{/assets/resources/angular/js/angular-sanitize.js}"></script>
+<script
+	th:src="@{/assets/resources/angular/js/ui-bootstrap-tpls-2.4.0.min.js}"></script>
+<script th:src="@{/assets/cms/app/js/app.js}"></script>
+<script th:src="@{/assets/cms/app/js/controller.js}"></script>
+<script th:src="@{/assets/cms/app/js/app-input.js}"></script>
+<script th:src="@{/assets/dom/TicTacToe.js}"></script>
+
+<link rel="stylesheet" th:href="@{/bootstrap/css/3.3.5/bootstrap.css}"></link>
+
+<!--   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'> -->
+
+<style type="text/css">
+.cell-blue {
+	background-color: #0493ED;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+}
+
+.cell-blue:hover {
+	background-color: #221efa;
+}
+
+.cell-green {
+	background-color: #29fa1e;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+}
+
+.cell-red {
+	background-color: #fa1e1e;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	line-height: 100px;
+}
+
+#main {
+	min-height: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+}
+</style>
+
+</head>
+<body ng-app="ticTacToeCtl" ng-controller="ticTacToe">
+
+	<div id="main">
+	
+		<div class="container-fluid">
+			<div class="row" ng-repeat="rows in tboard">
+
+				<div  style="width: 700px;" ng-repeat="board in rows">
+					<div class="col-xs-4 cell-blue" ng-click="getWhichBoard(board)"
+						ng-if="board.ownerBoard == '' ">{{board.column + ' ' +
+						board.row }}</div>
+					<div class="col-xs-4 cell-red" ng-click="getWhichBoard(board)"
+						ng-if="board.ownerBoard == 'v1' "></div>
+					<div class="col-xs-4 cell-green" ng-click="getWhichBoard(board)"
+						ng-if="board.ownerBoard == 'v2' "></div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

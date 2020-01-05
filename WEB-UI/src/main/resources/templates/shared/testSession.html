@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+
+<title>Tic Tac Toe</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link rel="stylesheet" th:href="@{/style/loading-component.css}" />
+<script th:src="@{/assets/resources/angular/js/angular.min.js}"></script>
+<script th:src="@{/assets/resources/angular/js/angular-sanitize.js}"></script>
+<script
+	th:src="@{/assets/resources/angular/js/ui-bootstrap-tpls-2.4.0.min.js}"></script>
+<script th:src="@{/assets/cms/app/js/app.js}"></script>
+<script th:src="@{/assets/cms/app/js/controller.js}"></script>
+<script th:src="@{/assets/cms/app/js/app-input.js}"></script>
+<script th:src="@{/assets/controller/shared/testSession.js}"></script>
+<script th:src="@{/assets/controller/master/masterFunction.js}"></script>
+
+<link rel="stylesheet" th:href="@{/bootstrap/css/3.3.5/bootstrap.css}"></link>
+
+
+</head>
+<body ng-app="testSessionModule" ng-controller="testSessionController">
+
+	INI SESSION TEST
+<button ng-click="getAccess()"></button>
+</body>
+</html>

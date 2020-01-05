@@ -1,0 +1,1 @@
+function isNumber(b){var a=b.keyCode;if(a>=48&&a<57){return true}else{return false}}function isNumberDot(b){var a=b.keyCode;if((a>=48&&a<57)||a==46){return true}else{return false}};
