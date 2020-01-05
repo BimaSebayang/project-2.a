@@ -46,9 +46,11 @@
 	</dependencies>
 
 <modules>
+<module>../WEB-COMMON</module>
 <module>../WEB-SECURITY-CORE</module>
 <module>../WEB-APP</module>
-<module>../WEB-COMMON</module>
+<module>../WEB-DEEP-LEARNING</module>
+<module>../WEB-UI</module>
 </modules>
 
 <!-- 	<build> -->
