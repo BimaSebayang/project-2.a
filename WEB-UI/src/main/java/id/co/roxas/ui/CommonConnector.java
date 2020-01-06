@@ -65,9 +65,9 @@ public class CommonConnector extends BaseCtl{
 	}
 
 	protected ModelAndView pageActivation(HttpServletRequest request, HttpSession session,
-			Authentication authentication, String keyAccess, String url, Map<String, Object> model,
+			Authentication authentication, String url, Map<String, Object> model,
 			HttpServletResponse response) {
-		response.addCookie(cookieEncryptor(KEY_ACCESS, keyAccess, session));
+		response.addCookie(cookieEncryptor(KEY_ACCESS, UUID.randomUUID().toString(), session));
 		return new ModelAndView(url, model);
 	}
 

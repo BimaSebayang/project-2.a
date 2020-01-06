@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import id.co.roxas.common.lib.controller.BaseCtl;
 import id.co.roxas.ui.CommonConnector;
 
 @Controller
@@ -25,11 +24,10 @@ public class SharedUi extends CommonConnector{
 	
 	@RequestMapping("/test-session")
 	public ModelAndView testSession(
-			@RequestParam(name=KEY_ACCESS, required=true) String keyAccess,
 			HttpServletRequest request, 
 			HttpSession session,
 			HttpServletResponse servletResponse) {
-		return pageActivation(request, session,null,keyAccess, "/shared/testSession",null,servletResponse );
+		return pageActivation(request, session,null, "/shared/testSession",null,servletResponse );
 	}
 	
 }

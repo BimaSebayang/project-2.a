@@ -6,6 +6,8 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpStatus;
+
 import id.co.roxas.ui.CommonConnector;
 
 public class AngularReturn {
@@ -15,29 +17,37 @@ public class AngularReturn {
 	private String keyAccess;
 	private String reasonResponse;
 	private int codeResponse;
+	private HttpStatus httpStatus;
 
 
 	public AngularReturn(Object response, String keyAccess, HttpSession session, HttpServletResponse servletResponse) {
 		String KEY = "KEY_ACCESS";
 		String sessionKey = (String) session.getAttribute(KEY);
-		System.err.println("session key : " + sessionKey);
-		System.err.println("key Access : " + keyAccess);
-		System.err.println("result equality : " + sessionKey.equals(keyAccess));
 
 			if (sessionKey != null && keyAccess != null && sessionKey.equals(keyAccess)) {
 				this.response = response;
 				this.keyAccess = keyAccess;
 				this.reasonResponse = "Retrieve Success";
-				this.codeResponse = 200;
+				this.codeResponse = HttpStatus.OK.value();
+				this.httpStatus = HttpStatus.OK;
 				String nextKeyAccess = UUID.randomUUID().toString();
 				servletResponse.addCookie(CommonConnector.cookieEncryptor(KEY, nextKeyAccess, session));		
 			}
 			else {
 				this.reasonResponse = "Invalid Key Access";
-				this.codeResponse = 403;
+				this.codeResponse = HttpStatus.FORBIDDEN.value();
+				this.httpStatus = HttpStatus.FORBIDDEN;
 			}
 		
 	}
+	
+	
+
+	public HttpStatus getHttpStatus() {
+		return httpStatus;
+	}
+
+
 
 	public String getReasonResponse() {
 		return reasonResponse;

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.gson.Gson;
+import com.sun.mail.iap.Response;
 
 import id.co.roxas.common.bean.angular.AngularRestReturn;
 import id.co.roxas.common.bean.graph.GraphBean;
@@ -47,10 +49,11 @@ public class SharedUiBackEnd extends CommonConnector{
 	
 	
 	@GetMapping("/test-get")
-	public AngularReturn getData(@RequestHeader(name=KEY_ACCESS, required=true) String keyAccess, 
+	public ResponseEntity<AngularReturn> getData(@RequestHeader(name=KEY_ACCESS, required=true) String keyAccess, 
 			HttpSession session, HttpServletResponse servletResponse) {
 		keyAccess = decryptCookiesBean(keyAccess).getCookiesValue();
-	    return new AngularReturn("Testing Doang", keyAccess, session,servletResponse);
+		AngularReturn angularReturn = new AngularReturn("Testing Doang", keyAccess, session,servletResponse);
+	    return new ResponseEntity<AngularReturn>(angularReturn, angularReturn.getHttpStatus());
 	}
 
 	@GetMapping("/test-get2")
@@ -60,7 +63,7 @@ public class SharedUiBackEnd extends CommonConnector{
 	}
 	
 	@PostMapping("/test-graph")
-	public AngularReturn  generateGraphData(
+	public ResponseEntity<AngularReturn>  generateGraphData(
 			@RequestParam(name=KEY_ACCESS, required=true) String keyAccess,
 			@RequestBody GraphBean bean, HttpSession httpSession,HttpServletResponse servletResponse) {
 		HttpRestResponse response = wsBody
@@ -75,7 +78,9 @@ public class SharedUiBackEnd extends CommonConnector{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new AngularReturn(wsResponse.getResponse(), keyAccess, httpSession,servletResponse);
+		
+		AngularReturn angularReturn = new AngularReturn(wsResponse.getResponse(), keyAccess, httpSession,servletResponse);
+		return new ResponseEntity<AngularReturn>(angularReturn, angularReturn.getHttpStatus());
 	}
 	
 	@PostMapping("/test-graph-new")

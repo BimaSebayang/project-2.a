@@ -24,6 +24,7 @@ testSessionModule.controller('testSessionController',function($scope, $http,
 		
 		$http.get("/shared/test-get",config)
 		.then(function (response){
+			debugger;
 			$scope.keyAccess = keyAccess(response);
 		}, function error(response){
 		})
