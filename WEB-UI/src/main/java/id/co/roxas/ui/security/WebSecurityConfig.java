@@ -36,8 +36,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 		  "/esbn-web/style/**",
                 		  "/esbn-web/file/**",
                 		  "/esbn-web/assets/**",
-                		  "/bootstrap/**", "/dist/**", "/plugins/**","/style/**",
-                		  "/script/**","/file/**","/master-wording/**","/esbn-web/master-wording/**","/esbn-web/registration/**","/registration/**","/assets/**").permitAll()
+                		  "/bootstrap/**", "/dist/**", "/plugins/**","/style/**","/example-template/**"
+                		  ,"/script/**","/file/**","/master-wording/**","/esbn-web/master-wording/**","/esbn-web/registration/**","/registration/**","/assets/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().accessDeniedPage("/login?denied")
